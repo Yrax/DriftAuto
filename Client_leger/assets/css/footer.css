@@ -1,0 +1,92 @@
+footer {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%) !important;
+    color: white !important;
+    padding: 60px 0 20px 0 !important;
+    font-family: 'Arial', sans-serif !important;
+    width: 100% !important;
+}
+
+/* On centre la grille au milieu de l'écran */
+.footer-grid {
+    max-width: 1100px !important; /* Largeur max pour que ce soit centralisé */
+    margin: 0 auto !important;    /* Magie du centrage horizontal */
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr !important; /* La marque est un peu plus large */
+    gap: 40px !important;
+    padding: 0 20px !important;
+}
+
+.footer-brand .nav-logo {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    margin-bottom: 15px !important;
+}
+
+.footer-brand .nav-logo span {
+    font-weight: 300 !important;
+    color: #93c5fd !important;
+}
+
+.footer-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.footer-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.footer-links li {
+    margin-bottom: 12px !important;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
+    font-size: 0.9rem !important;
+    transition: 0.3s !important;
+}
+
+.footer-links a:hover {
+    color: white !important;
+    padding-left: 5px !important;
+}
+
+.footer-bottom {
+    max-width: 1100px !important;
+    margin: 40px auto 0 auto !important;
+    padding-top: 20px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    justify-content: space-between !important; /* Copyright à gauche, Mentions à droite */
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Adaptabilité Mobile */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr !important; /* 2 colonnes sur tablette */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr !important; /* 1 colonne sur téléphone */
+        text-align: center !important;
+    }
+    .footer-bottom {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+}

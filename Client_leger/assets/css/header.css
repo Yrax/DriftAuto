@@ -1,0 +1,144 @@
+<style>
+/* ════════════════════════════
+   CSS HEADER : Menu Flottant (Glassmorphism)
+   ════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+    --navy:        #1b3160;
+    --blue:        #2563eb;
+    --gold:        #f59e0b;
+    --bg-white:    #ffffff;
+    --text-dark:   #0f1f3d;
+}
+
+/* 1. Le conteneur devient une bulle flottante 
+*/
+.nav-main {
+    position: fixed; /* Reste à l'écran quand on scrolle */
+    top: 25px;       /* Décollé du haut de l'écran */
+    left: 50%;
+    transform: translateX(-50%); /* Pour le centrer parfaitement */
+    width: 92%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px 10px 25px;
+    
+    /* L'effet "Verre dépoli" magique */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    border-radius: 100px; /* Forme de pilule */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 40px rgba(27, 49, 96, 0.1);
+    
+    font-family: 'Outfit', sans-serif;
+    z-index: 1000;
+}
+
+/* Le Logo plus compact pour tenir dans la pilule */
+.nav-logo img {
+    width: 50px; 
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid var(--navy);
+    box-shadow: 0 4px 10px rgba(27, 49, 96, 0.15);
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+}
+.nav-logo:hover img {
+    transform: scale(1.1) rotate(-5deg); /* Petit effet dynamique sympa */
+}
+
+/* La liste des liens */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 5px; /* Les liens sont plus rapprochés */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Les liens au survol deviennent des petites capsules grises
+*/
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+}
+.nav-links a:hover {
+    background: rgba(27, 49, 96, 0.05);
+    color: var(--blue);
+}
+
+/* La zone des boutons */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Bouton Connexion invisible, devient bleu clair au survol */
+.nav-btn-connexion {
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: all 0.25s;
+}
+.nav-btn-connexion:hover {
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--blue);
+}
+
+/* Bouton Inscription qui pète */
+.nav-btn-inscription {
+    text-decoration: none;
+    background: var(--navy);
+    color: var(--bg-white);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(27, 49, 96, 0.2);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-btn-inscription:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* Si l'écran est petit, on cache les liens du milieu pour ne garder que le logo et les boutons */
+@media (max-width: 850px) {
+    .nav-links { display: none; }
+    .nav-main { padding: 10px 15px; width: 95%; }
+}
+</style>
+
+<nav class="nav-main">
+    <a href="index.php" class="nav-logo">
+        <img src="assets/images/logo1.png" alt="Logo DriftAuto">
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#formations">Formations</a></li>
+        <li><a href="#processus">Comment ça marche</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="contact.php">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <a href="connexion.php" class="nav-btn-connexion">Connexion</a>
+        <a href="inscription.php" class="nav-btn-inscription">Inscription</a>
+    </div>
+</nav>
