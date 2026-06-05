@@ -77,10 +77,10 @@ public class PanelClients extends PanelPrincipal implements ActionListener {
 		this.panelForm.add(VueGenerale.creeLabelBlanc("Adresse : "));
 		this.panelForm.add(this.txtAdresse);
 
-		this.panelForm.add(VueGenerale.creeLabelBlanc("Code postal : "));
+		this.panelForm.add(VueGenerale.creeLabelBlanc("Ville : "));
 		this.panelForm.add(this.txtCodePostal);
 
-		this.panelForm.add(VueGenerale.creeLabelBlanc("Ville : "));
+		this.panelForm.add(VueGenerale.creeLabelBlanc("Code Postal : "));
 		this.panelForm.add(this.txtVille);
 
 		this.panelForm.add(VueGenerale.creeLabelBlanc("Email : "));

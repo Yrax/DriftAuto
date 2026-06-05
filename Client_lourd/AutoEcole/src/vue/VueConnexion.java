@@ -22,8 +22,8 @@ import controleur.Moniteur;
 public class VueConnexion extends JFrame implements ActionListener {
 
 	private JPanel panelForm = new JPanel(); //div en html
-	private JTextField txtEmail = new JTextField("jean.dupond@driftauto.mo");
-	private JPasswordField txtMdp = new JPasswordField("mdp123");
+	private JTextField txtEmail = new JTextField("");
+	private JPasswordField txtMdp = new JPasswordField("");
 	private JButton btAnnuler = new JButton("Annuler");
 	private JButton btValider = new JButton("Valider");
 	
