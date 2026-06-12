@@ -256,7 +256,7 @@ public function selectLeconsMoniteur($numero_moniteur) {
 
 /****** Gestion des Moniteurs ******/
         public function insert_moniteur($tab){
-            $requete = "insert into moniteur values 
+            $requete = "insert into Moniteur values 
                 (null, :nom_moniteur, :prenom_moniteur, :date_naissance_moniteur, :telephone_moniteur, :adresse_moniteur, :code_postal_moniteur, :ville_moniteur, :email_moniteur, curdate(),  :administateur, :mdp_moniteur);";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute(array(
@@ -274,14 +274,14 @@ public function selectLeconsMoniteur($numero_moniteur) {
         }
 
         public function selectAll_moniteurs(){
-            $requete = "select * from moniteur;";
+            $requete = "select * from Moniteur;";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute();
             return $exec->fetchAll();
         }
 
         public function selectLike_moniteurs($filtre){
-            $requete = "select * from moniteur where 
+            $requete = "select * from Moniteur where 
                 nom_moniteur like :filtre or
                 prenom_moniteur like :filtre;";
             $exec = $this->unPdo->prepare($requete);
@@ -290,13 +290,13 @@ public function selectLeconsMoniteur($numero_moniteur) {
         }
 
         public function delete_moniteur($numero_moniteur){
-            $requete = "delete from moniteur where numero_moniteur = :numero_moniteur;";
+            $requete = "delete from Moniteur where numero_moniteur = :numero_moniteur;";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute(array(":numero_moniteur"=>$numero_moniteur));
         }
 
         public function update_moniteur($tab){
-            $requete = "update moniteur set 
+            $requete = "update Moniteur set 
                 nom_moniteur = :nom_moniteur,
                 prenom_moniteur = :prenom_moniteur,
                 date_naissance_moniteur = :date_naissance_moniteur,
@@ -304,7 +304,6 @@ public function selectLeconsMoniteur($numero_moniteur) {
                 adresse_moniteur = :adresse_moniteur,
                 code_postal_moniteur = :code_postal_moniteur,
                 ville_moniteur = :ville_moniteur,
-               
                 mdp_moniteur = :mdp_moniteur
                 where numero_moniteur = :numero_moniteur;";
             $exec = $this->unPdo->prepare($requete);
@@ -326,7 +325,7 @@ public function selectLeconsMoniteur($numero_moniteur) {
         }
 
         public function selectWhere_moniteur($numero_moniteur){
-            $requete = "select * from moniteur where numero_moniteur = :numero_moniteur;";
+            $requete = "select * from Moniteur where numero_moniteur = :numero_moniteur;";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute(array(":numero_moniteur"=>$numero_moniteur));
             return $exec->fetch();
@@ -334,7 +333,7 @@ public function selectLeconsMoniteur($numero_moniteur) {
 
 
         public function select_moniteur($identifiant, $mdp){
-        $requete = "select * from moniteur 
+        $requete = "select * from Moniteur 
                     WHERE email_moniteur = :email_moniteur 
                     AND mdp_moniteur = :mdp_moniteur;";
 
@@ -347,7 +346,7 @@ public function selectLeconsMoniteur($numero_moniteur) {
 
 /****** Gestion des Voitures ******/
         public function insert_voiture($tab){
-            $requete = "insert into voiture (numero_immatriculation, date_achat, nombre_km)
+            $requete = "insert into Voiture (numero_immatriculation, date_achat, nombre_km)
                         VALUES (:numero_immatriculation, :date_achat, :nombre_km)";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute(array(
@@ -358,14 +357,14 @@ public function selectLeconsMoniteur($numero_moniteur) {
         }
 
         public function selectAll_voitures(){
-            $requete = "select * from voiture";
+            $requete = "select * from Voiture";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute();
             return $exec->fetchAll();
         }
 
         public function selectLike_voitures($filtre){
-            $requete = "select * from voiture 
+            $requete = "select * from Voiture 
                         WHERE numero_immatriculation LIKE :filtre
                         OR nombre_km LIKE :filtre";
             $exec = $this->unPdo->prepare($requete);
@@ -374,13 +373,13 @@ public function selectLeconsMoniteur($numero_moniteur) {
         }
 
         public function delete_voiture($numero_immatriculation){
-            $requete = "delete from voiture where numero_immatriculation = :numero_immatriculation";
+            $requete = "delete from Voiture where numero_immatriculation = :numero_immatriculation";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute(array(":numero_immatriculation"=>$numero_immatriculation));
         }
 
         public function update_voiture($tab){
-            $requete = "update voiture set 
+            $requete = "update Voiture set 
                         date_achat = :date_achat,
                         nombre_km = :nombre_km
                         WHERE numero_immatriculation = :numero_immatriculation";
@@ -393,7 +392,7 @@ public function selectLeconsMoniteur($numero_moniteur) {
         }
 
         public function selectWhere_voiture($numero_immatriculation){
-            $requete = "select * FROM voiture where (numero_immatriculation = :numero_immatriculation);";
+            $requete = "select * FROM Voiture where (numero_immatriculation = :numero_immatriculation);";
             $exec = $this->unPdo->prepare($requete);
             $exec->execute(array(":numero_immatriculation"=>$numero_immatriculation));
             return $exec->fetch();
@@ -534,7 +533,7 @@ public function selectLeconsMoniteur($numero_moniteur) {
 /****** Gestion des Users ******/
 		public function select_user($identifiant, $mdp){
 			// requête paramétré
-			$requete = "select * from client where (email_client = :identifiant OR pseudo_client = :identifiant) and mdp_client= :mdp_client;";
+			$requete = "select * from Client where (email_client = :identifiant OR pseudo_client = :identifiant) and mdp_client= :mdp_client;";
 
 			$donnees = array(":identifiant" => $identifiant, ":mdp_client" => $mdp);
 			// préparation de la requête
